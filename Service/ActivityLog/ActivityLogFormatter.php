@@ -54,11 +54,8 @@ class ActivityLogFormatter
      */
     private function getEntryFormatter(LogEntry $logEntry)
     {
-        $formatterClass = str_replace(
-            'AppBundle\Entity',
-            __NAMESPACE__.'\EntityFormatter',
-            $logEntry->getObjectClass()
-        );
+        $className = substr(strrchr(rtrim($logEntry->getObjectClass(), '\\'), '\\'), 1);
+        $formatterClass = __NAMESPACE__. '\EntityFormatter\\' . $className;
 
         // Support fully-qualified class names
         $formatter = null;
