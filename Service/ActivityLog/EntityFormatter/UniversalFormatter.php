@@ -18,7 +18,7 @@ class UniversalFormatter extends AbstractFormatter implements FormatterInterface
     {
         $result = $log->toArray();
 
-        $name = str_replace('AppBundle\Entity\\', '', $log->getObjectClass());
+        $name = substr(strrchr(rtrim($log->getObjectClass(), '\\'), '\\'), 1);
         if ($log->isCreate()) {
             $result['message'] = sprintf('The entity <b>%s (%s)</b> was created.', $log->getName(), $name);
         } else if ($log->isRemove()) {

@@ -1,4 +1,5 @@
 services:
     activity_log.formatter:
         class: ActivityLogBundle\Service\ActivityLog\ActivityLogFormatter
+        arguments: ["@logger", "@doctrine.orm.default_entity_manager"]
 

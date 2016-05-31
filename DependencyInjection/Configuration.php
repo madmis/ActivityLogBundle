@@ -21,9 +21,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('formatter_path')->isRequired()->end()
-                ->scalarNode('logger')->isRequired()->end()
-                ->scalarNode('entity_manager')->isRequired()->end()
+                ->scalarNode('formatter_prefix')->isRequired()->end()
             ->end()
         ;
 

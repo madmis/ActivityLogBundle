@@ -27,18 +27,18 @@ class ActivityLogFormatter
     /**
      * @var string
      */
-    private $formatterPath;
+    private $formatterPrefix;
 
     /**
      * @param LoggerInterface $logger
      * @param EntityManager $entityManager
-     * @param string $formatterPath
+     * @param string $formatterPrefix
      */
-    public function __construct(LoggerInterface $logger, EntityManager $entityManager, $formatterPath)
+    public function __construct(LoggerInterface $logger, EntityManager $entityManager, $formatterPrefix)
     {
         $this->logger = $logger;
         $this->entityManager = $entityManager;
-        $this->formatterPath = $formatterPath;
+        $this->formatterPrefix = $formatterPrefix;
     }
 
     /**
@@ -63,7 +63,7 @@ class ActivityLogFormatter
     {
         $className = substr(strrchr(rtrim($logEntry->getObjectClass(), '\\'), '\\'), 1);
 
-        $formatterClass = rtrim($this->formatterPath, '\\') . '\\' . $className;
+        $formatterClass = rtrim($this->formatterPrefix, '\\') . '\\' . $className;
         $formatter = $this->getCustomFormatter($formatterClass);
 
         // Support fully-qualified class names

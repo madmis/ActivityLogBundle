@@ -25,6 +25,6 @@ class ActivityLogExtension extends Extension
         $loader->load('services.yml');
 
         $container->getDefinition('activity_log.formatter')
-            ->setArguments([$config['logger'], $config['entity_manager']]);
+            ->addArgument($config['formatter_prefix']);
     }
 }
