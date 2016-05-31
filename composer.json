@@ -1,0 +1,29 @@
+{
+    "name": "madmis/ActivityLogBundle",
+    "type": "symfony-bundle",
+    "description": "Activity log bundle - Extended doctrine loggable bundle",
+    "keywords": ["bundle", "doctrine", "loggable", "activity", "symfony"],
+    "homepage": "https://github.com/madmis/ActivityLogBundle.git",
+    "authors": [
+        {
+            "name": "Dmitry Machin",
+            "email": "madmis@inbox.ru"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0",
+        "stof/doctrine-extensions-bundle": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Madmis\\ActivityLogBundle": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}
