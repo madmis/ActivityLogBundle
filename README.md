@@ -70,6 +70,10 @@ stof_doctrine_extensions:
     orm:
         default:
             loggable: true
+            
+activity_log:
+    # namespace prefix for custom formatters 
+    formatter_prefix: "AppBundle\\Service\\ActivityFormatter"
 ```
 
 Create entity and make it loggable:
@@ -126,8 +130,9 @@ Using formatter to data view
 ------------
 
 Formatter class: **ActivityLogBundle\Service\ActivityLog\ActivityLogFormatter**
+Formatter service: **activity_log.formatter**
 
-required: **LoggerInterface** and **EntityManager** as dependencies
+required: **LoggerInterface**, **EntityManager** and **formatter_prefix** parameter as dependencies
 
 By default entity without custom formatter class formatted by **ActivityLogBundle\Service\ActivityLog\EntityFormatter\UniversalFormatter**
 
@@ -137,7 +142,7 @@ As example formatter for **AppBundle\Entity\Project** entity:
 
 ```php
 
-namespace AppBundle\Service\ActivityLog\EntityFormatter;
+namespace AppBundle\Service\ActivityFormatter;
 
 class Project extends AbstractFormatter implements FormatterInterface
 {
@@ -188,7 +193,7 @@ For example, **Project** entity has association mapping **ManyToOne** to **Type*
 To get **Type** name we can add method **type** to **Project** formatter:
 
 ```php
-namespace AppBundle\Service\ActivityLog\EntityFormatter;
+namespace AppBundle\Service\ActivityFormatter;
 
 class Project extends AbstractFormatter implements FormatterInterface
 {
@@ -215,7 +220,6 @@ class Project extends AbstractFormatter implements FormatterInterface
 ```
 
 As result we have formatted response to show in view
-
 
 
 
