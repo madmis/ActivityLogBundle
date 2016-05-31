@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Madmis\\ActivityLogBundle": ""
+            "ActivityLogBundle\\": ""
         }
     },
     "minimum-stability": "dev",
