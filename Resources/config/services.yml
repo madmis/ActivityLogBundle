@@ -1,2 +1,4 @@
 services:
+    activity_log.formatter:
+        class: ActivityLogBundle\Service\ActivityLog\ActivityLogFormatter
 

@@ -25,13 +25,20 @@ class ActivityLogFormatter
     private $entityManager;
 
     /**
+     * @var string
+     */
+    private $formatterPath;
+
+    /**
      * @param LoggerInterface $logger
      * @param EntityManager $entityManager
+     * @param string $formatterPath
      */
-    public function __construct(LoggerInterface $logger, EntityManager $entityManager)
+    public function __construct(LoggerInterface $logger, EntityManager $entityManager, $formatterPath)
     {
         $this->logger = $logger;
         $this->entityManager = $entityManager;
+        $this->formatterPath = $formatterPath;
     }
 
     /**
@@ -55,20 +62,35 @@ class ActivityLogFormatter
     private function getEntryFormatter(LogEntry $logEntry)
     {
         $className = substr(strrchr(rtrim($logEntry->getObjectClass(), '\\'), '\\'), 1);
-        $formatterClass = __NAMESPACE__. '\EntityFormatter\\' . $className;
+
+        $formatterClass = rtrim($this->formatterPath, '\\') . '\\' . $className;
+        $formatter = $this->getCustomFormatter($formatterClass);
 
         // Support fully-qualified class names
-        $formatter = null;
-        if (class_exists($formatterClass)) {
-            $implements = in_array('ActivityLogBundle\Service\ActivityLog\EntityFormatter', class_implements($formatterClass), true);
-            if ($implements) {
-                $formatter = new $formatterClass($this->entityManager);
-            }
-        }
-
         if (!$formatter) {
             $this->logger->warning("For entity {$logEntry->getObjectClass()} don't implemented Activity Log Formatter.");
             $formatter = new UniversalFormatter($this->entityManager);
+        }
+
+        return $formatter;
+    }
+
+    /**
+     * @param string $formatterClass
+     * @return FormatterInterface|null
+     */
+    private function getCustomFormatter($formatterClass)
+    {
+        $formatter = null;
+        if (class_exists($formatterClass)) {
+            $implements = in_array(
+                'ActivityLogBundle\Service\ActivityLog\EntityFormatter\FormatterInterface',
+                class_implements($formatterClass),
+                true
+            );
+            if ($implements) {
+                $formatter = new $formatterClass($this->entityManager);
+            }
         }
 
         return $formatter;
