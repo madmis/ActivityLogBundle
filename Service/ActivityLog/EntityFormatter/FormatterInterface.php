@@ -2,7 +2,7 @@
 
 namespace ActivityLogBundle\Service\ActivityLog\EntityFormatter;
 
-use ActivityLogBundle\Entity\LogEntry;
+use ActivityLogBundle\Entity\LogEntryInterface;
 
 /**
  * Interface FormatterInterface
@@ -11,8 +11,8 @@ use ActivityLogBundle\Entity\LogEntry;
 interface FormatterInterface
 {
     /**
-     * @param LogEntry $log
+     * @param LogEntryInterface $log
      * @return array
      */
-    public function format(LogEntry $log);
+    public function format(LogEntryInterface $log);
 }
