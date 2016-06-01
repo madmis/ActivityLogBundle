@@ -3,6 +3,7 @@
 namespace ActivityLogBundle\Service\ActivityLog;
 
 use ActivityLogBundle\Entity\LogEntry;
+use ActivityLogBundle\Entity\LogEntryInterface;
 use Doctrine\ORM\EntityManager;
 use ActivityLogBundle\Service\ActivityLog\EntityFormatter\FormatterInterface;
 use ActivityLogBundle\Service\ActivityLog\EntityFormatter\UniversalFormatter;
@@ -56,10 +57,10 @@ class ActivityLogFormatter
     }
 
     /**
-     * @param LogEntry $logEntry
+     * @param LogEntryInterface|LogEntry $logEntry
      * @return FormatterInterface
      */
-    private function getEntryFormatter(LogEntry $logEntry)
+    private function getEntryFormatter(LogEntryInterface $logEntry)
     {
         $className = substr(strrchr(rtrim($logEntry->getObjectClass(), '\\'), '\\'), 1);
 
