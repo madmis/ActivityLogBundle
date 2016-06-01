@@ -4,3 +4,4 @@ global_exclude_dirs:
     - .sensiolabs.yml
     - .travis.yml
     - README.md
+

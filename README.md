@@ -234,3 +234,5 @@ As result we have formatted response to show in view
 [testing-link]: https://travis-ci.org/madmis/ActivityLogBundle
 [testing-image]: https://travis-ci.org/madmis/ActivityLogBundle.svg?branch=master
 [stable-image]: https://poser.pugx.org/madmis/activity-log-bundle/v/stable
+
+
