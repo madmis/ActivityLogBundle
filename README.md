@@ -241,7 +241,3 @@ As result we have formatted response to show in view
 [stof-link]: https://github.com/stof/StofDoctrineExtensionsBundle
 [doctrine-link]: https://github.com/Atlantic18/DoctrineExtensions
 
-
-
-
-
