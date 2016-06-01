@@ -2,10 +2,11 @@ Symfony ActivityLog Component
 ==================================
 
 [![SensioLabsInsight][sensiolabs-insight-image]][sensiolabs-insight-link]
-
-[![Total Downloads][downloads-image]][package-link]
 [![Build Status][testing-image]][testing-link]
 [![Latest Stable Version][stable-image]][package-link]
+[![Total Downloads][downloads-image]][package-link]
+
+[![License][license-image]][license-link]
 
 ActivityLogBundle - Extended doctrine loggable (StofDoctrineExtensionsBundle)
 
@@ -226,13 +227,21 @@ class Project extends AbstractFormatter implements FormatterInterface
 As result we have formatted response to show in view
 
 [sensiolabs-insight-link]: https://insight.sensiolabs.com/projects/9b7eb683-a440-4f68-804a-38ae107e75d0
-[sensiolabs-insight-image]: https://insight.sensiolabs.com/projects/9b7eb683-a440-4f68-804a-38ae107e75d0/big.png
+[sensiolabs-insight-image]: https://insight.sensiolabs.com/projects/9b7eb683-a440-4f68-804a-38ae107e75d0/mini.png
+
 [package-link]: https://packagist.org/packages/madmis/activity-log-bundle
 [downloads-image]: https://poser.pugx.org/madmis/activity-log-bundle/downloads
-[stof-link]: https://github.com/stof/StofDoctrineExtensionsBundle
-[doctrine-link]: https://github.com/Atlantic18/DoctrineExtensions
+[stable-image]: https://poser.pugx.org/madmis/activity-log-bundle/v/stable
+[license-image]: https://poser.pugx.org/madmis/activity-log-bundle/license
+[license-link]: https://packagist.org/packages/madmis/activity-log-bundle
+
 [testing-link]: https://travis-ci.org/madmis/ActivityLogBundle
 [testing-image]: https://travis-ci.org/madmis/ActivityLogBundle.svg?branch=master
-[stable-image]: https://poser.pugx.org/madmis/activity-log-bundle/v/stable
+
+[stof-link]: https://github.com/stof/StofDoctrineExtensionsBundle
+[doctrine-link]: https://github.com/Atlantic18/DoctrineExtensions
+
+
+
 
 
