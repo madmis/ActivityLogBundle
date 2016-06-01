@@ -5,7 +5,6 @@ Symfony ActivityLog Component
 [![Build Status][testing-image]][testing-link]
 [![Latest Stable Version][stable-image]][package-link]
 [![Total Downloads][downloads-image]][package-link]
-
 [![License][license-image]][license-link]
 
 ActivityLogBundle - Extended doctrine loggable (StofDoctrineExtensionsBundle)
