@@ -1,6 +1,7 @@
 Symfony ActivityLog Component
 ==================================
 
+[![SensioLabsInsight][sensiolabs-insight-image]][sensiolabs-insight-link]
 [![Total Downloads][downloads-image]][package-link]
 
 ActivityLogBundle - Extended doctrine loggable (StofDoctrineExtensionsBundle)
@@ -221,10 +222,10 @@ class Project extends AbstractFormatter implements FormatterInterface
 
 As result we have formatted response to show in view
 
-
-
+[sensiolabs-insight-link]: https://insight.sensiolabs.com/projects/9b7eb683-a440-4f68-804a-38ae107e75d0
+[sensiolabs-insight-image]: https://insight.sensiolabs.com/projects/9b7eb683-a440-4f68-804a-38ae107e75d0/big.png
 [package-link]: https://packagist.org/packages/madmis/activity-log-bundle
 [license-image]: https://poser.pugx.org/symfony-bundles/bundle-dependency/license
 [downloads-image]: https://poser.pugx.org/madmis/activity-log-bundle/downloads
 [stof-link]: https://github.com/stof/StofDoctrineExtensionsBundle
-[doctrine-link]: https://github.com/Atlantic18/DoctrineExtensions 
+[doctrine-link]: https://github.com/Atlantic18/DoctrineExtensions

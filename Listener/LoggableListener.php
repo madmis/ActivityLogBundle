@@ -56,7 +56,7 @@ class LoggableListener extends BaseListener
      */
     public function onFlush(EventArgs $eventArgs)
     {
-        $this->eventAdapter = $ea = $this->getEventAdapter($eventArgs);
+        $this->eventAdapter = $this->getEventAdapter($eventArgs);
 
         parent::onFlush($eventArgs);
     }
