@@ -151,10 +151,10 @@ namespace AppBundle\Service\ActivityFormatter;
 class Project extends AbstractFormatter implements FormatterInterface
 {
     /**
-     * @param LogEntry $log
+     * @param LogEntryInterface $log
      * @return array
      */
-    public function format(LogEntry $log)
+    public function format(LogEntryInterface $log)
     {
         $result = $log->toArray();
 
