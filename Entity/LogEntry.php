@@ -4,7 +4,6 @@ namespace ActivityLogBundle\Entity;
 
 use ActivityLogBundle\Entity\MappedSuperclass\AbstractLogEntry;
 use Doctrine\ORM\Mapping as ORM;
-use ActivityLogBundle\Entity\Interfaces\ArrayableInterface;
 
 /**
  * Class LogEntry
