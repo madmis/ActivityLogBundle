@@ -34,5 +34,9 @@ matrix:
           env: SYMFONY_VERSION=3.0.*
 
 notifications:
-    email: false
+    email:
+        recipients:
+            - madmis@inbox.ru
+        on_success: never
+        on_failure: always
 
