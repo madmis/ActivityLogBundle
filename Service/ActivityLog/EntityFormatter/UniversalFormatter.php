@@ -3,6 +3,7 @@
 namespace ActivityLogBundle\Service\ActivityLog\EntityFormatter;
 
 use ActivityLogBundle\Entity\LogEntry;
+use ActivityLogBundle\Entity\LogEntryInterface;
 
 /**
  * Class UniversalFormatter
@@ -11,10 +12,10 @@ use ActivityLogBundle\Entity\LogEntry;
 class UniversalFormatter extends AbstractFormatter implements FormatterInterface
 {
     /**
-     * @param LogEntry $log
+     * @param LogEntryInterface|LogEntry $log
      * @return array
      */
-    public function format(LogEntry $log)
+    public function format(LogEntryInterface $log)
     {
         $result = $log->toArray();
 
