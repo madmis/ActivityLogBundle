@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Entity\MappedSuperclass;
-
 
 use ActivityLogBundle\Entity\MappedSuperclass\AbstractLogEntry;
 
