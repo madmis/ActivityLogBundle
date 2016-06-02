@@ -20,9 +20,14 @@
         <whitelist>
             <directory suffix=".php">./</directory>
             <exclude>
+                <file>ActivityLogBundle.php</file>
                 <directory>./Tests</directory>
                 <directory>./Resources</directory>
                 <directory>./vendor</directory>
+                <directory>./DependencyInjection</directory>
+                <directory>./Entity/Interfaces</directory>
+                <directory>./Entity/LogEntryInterface.php</directory>
+                <directory>./Service/ActivityLog/EntityFormatter/FormatterInterface.php</directory>
             </exclude>
         </whitelist>
     </filter>

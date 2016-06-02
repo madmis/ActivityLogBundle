@@ -32,7 +32,11 @@ abstract class AbstractFormatter
     public function normalizeValue($field, $value)
     {
         if (method_exists($this, $field)) {
-            return $this->$field($value);
+            return call_user_func(
+                [$this, $field],
+                $value
+            );
+//            return $this->$field($value);
         }
 
         if (is_array($value)) {
@@ -50,7 +54,7 @@ abstract class AbstractFormatter
      */
     public function toComment(array $data)
     {
-        $result = array();
+        $result = [];
         foreach ($data as $key => $value) {
             $result[] = $key . ': ' . $value . ';';
         }

@@ -28,4 +28,25 @@ class AbstractFormatterTest extends \PHPUnit_Framework_TestCase
         $result = $stub->normalizeValue('test', 1);
         $this->assertTrue(is_int($result));
     }
+
+    /**
+     * This test only for coverage - it's not test any real behaviors
+     */
+    public function testNormalizeValueByMethod()
+    {
+        $stub = $this->getMockForAbstractClass(
+            'ActivityLogBundle\Service\ActivityLog\EntityFormatter\AbstractFormatter',
+            [$this->getEmMock()],
+            '',
+            true,
+            true,
+            true,
+            ['test']
+        );
+        $stub->method('test')
+            ->willReturn('test');
+
+        $result = $stub->normalizeValue('test', 'test');
+        $this->assertEquals('test', $result);
+    }
 }

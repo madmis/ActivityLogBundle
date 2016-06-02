@@ -57,14 +57,14 @@ class ActivityLogFormatterTest extends \PHPUnit_Framework_TestCase
         $logEntry->setName('Name');
         $logEntry->setParentId('parent-id');
         $logEntry->setData(['test' => 'test1']);
-        $logEntry->setObjectClass('AppBundle\Entity\Custom');
+        $logEntry->setObjectClass('AppBundle\Entity\UniversalFormatter');
         $logEntry->setObjectId('object-id');
         $logEntry->setVersion(2);
         $result = $factory->format([$logEntry]);
 
         $this->assertTrue(is_array($result[0]));
         $this->assertArrayHasKey('message', $result[0]);
-        $this->assertEquals('The entity <b>Name (Custom)</b> was created.', $result[0]['message']);
+        $this->assertEquals('The entity <b>Name (UniversalFormatter)</b> was created.', $result[0]['message']);
     }
 
 }
