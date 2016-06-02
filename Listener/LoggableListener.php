@@ -22,12 +22,12 @@ class LoggableListener extends BaseListener
     /**
      * @var AdapterInterface
      */
-    private $eventAdapter;
+    protected $eventAdapter;
 
     /**
      * @var UserInterface
      */
-    private $user;
+    protected $user;
 
     /**
      * Set username for identification

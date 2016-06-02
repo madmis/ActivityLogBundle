@@ -27,7 +27,7 @@ abstract class AbstractFormatter
     /**
      * @param string $field
      * @param mixed $value
-     * @return string
+     * @return string|bool|int
      */
     public function normalizeValue($field, $value)
     {
