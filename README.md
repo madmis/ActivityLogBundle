@@ -3,6 +3,7 @@ Symfony ActivityLog Component
 
 [![SensioLabsInsight][sensiolabs-insight-image]][sensiolabs-insight-link]
 [![Build Status][testing-image]][testing-link]
+[![Coverage Status][coverage-image]][coverage-link]
 [![Latest Stable Version][stable-image]][package-link]
 [![Total Downloads][downloads-image]][package-link]
 [![License][license-image]][license-link]
@@ -239,4 +240,7 @@ As result we have formatted response to show in view
 
 [stof-link]: https://github.com/stof/StofDoctrineExtensionsBundle
 [doctrine-link]: https://github.com/Atlantic18/DoctrineExtensions
+
+[coverage-link]: https://coveralls.io/github/madmis/ActivityLogBundle?branch=master
+[coverage-image]: https://coveralls.io/repos/github/madmis/ActivityLogBundle/badge.svg?branch=master
 
