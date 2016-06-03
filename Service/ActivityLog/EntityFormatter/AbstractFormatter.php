@@ -32,11 +32,7 @@ abstract class AbstractFormatter
     public function normalizeValue($field, $value)
     {
         if (method_exists($this, $field)) {
-            return call_user_func(
-                [$this, $field],
-                $value
-            );
-//            return $this->$field($value);
+            return $this->$field($value);
         }
 
         if (is_array($value)) {
