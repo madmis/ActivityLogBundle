@@ -224,10 +224,32 @@ class Project extends AbstractFormatter implements FormatterInterface
     }
 ```
 
-As result we have formatted response to show in view
+As result we have formatted response to show in view.
+
+Using activity log in controller
+------------
+
+```php
+$em = $this->getDoctrine()->getManager();
+// get log entries for entity
+$entries =  $em
+            ->getRepository('AppBundle:LogEntry')
+            ->getLogEntriesQueryBuilder($entity)
+           ->getQuery()
+          ->getResult();
+// format log entries to show in the view
+$entries = $this
+            ->get('activity_log.formatter')
+            ->format($entries);
+```
+
+For ```$entity``` should be configured [Entity formatter][formatter-link]. 
+
 
 [sensiolabs-insight-link]: https://insight.sensiolabs.com/projects/9b7eb683-a440-4f68-804a-38ae107e75d0
 [sensiolabs-insight-image]: https://insight.sensiolabs.com/projects/9b7eb683-a440-4f68-804a-38ae107e75d0/mini.png
+
+[formatter-link]: #using-formatter-to-data-view
 
 [package-link]: https://packagist.org/packages/madmis/activity-log-bundle
 [downloads-image]: https://poser.pugx.org/madmis/activity-log-bundle/downloads
