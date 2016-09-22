@@ -16,10 +16,7 @@ class ActivityLogFormatterTest extends \PHPUnit_Framework_TestCase
         $logger->method('warning')
         ->willReturn($this->returnValue(null));
 
-        $em = $this->getMockBuilder('\Doctrine\ORM\EntityManager')
-        ->getMock();
-
-        $factory = new ActivityLogFormatter($logger, $em, '');
+        $factory = new ActivityLogFormatter($logger);
         $logEntry = new LogEntry();
         $logEntry->setOldData(['test' => 'test']);
         $logEntry->setUsername('username');
@@ -45,10 +42,7 @@ class ActivityLogFormatterTest extends \PHPUnit_Framework_TestCase
         $logger->method('warning')
             ->willReturn($this->returnValue(null));
 
-        $em = $this->getMockBuilder('\Doctrine\ORM\EntityManager')
-            ->getMock();
-
-        $factory = new ActivityLogFormatter($logger, $em, 'ActivityLogBundle\Service\ActivityLog\EntityFormatter');
+        $factory = new ActivityLogFormatter($logger);
         $logEntry = new LogEntry();
         $logEntry->setOldData(['test' => 'test']);
         $logEntry->setUsername('username');

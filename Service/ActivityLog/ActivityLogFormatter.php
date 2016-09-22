@@ -21,25 +21,36 @@ class ActivityLogFormatter
     private $logger;
 
     /**
-     * @var EntityManager
+     * @var array
      */
-    private $entityManager;
+    private $customFormatters;
 
     /**
-     * @var string
-     */
-    private $formatterPrefix;
-
-    /**
+     * ActivityLogFormatter constructor.
+     *
      * @param LoggerInterface $logger
-     * @param EntityManager $entityManager
-     * @param string $formatterPrefix
      */
-    public function __construct(LoggerInterface $logger, EntityManager $entityManager, $formatterPrefix)
+    public function __construct(LoggerInterface $logger)
     {
-        $this->logger = $logger;
-        $this->entityManager = $entityManager;
-        $this->formatterPrefix = $formatterPrefix;
+        $this->logger           = $logger;
+        $this->customFormatters = [];
+    }
+
+    /**
+     * @param FormatterInterface $formatter
+     * @param string $entity
+     */
+    public function addFormatter($formatter, $entity)
+    {
+        $implements = in_array(
+            'ActivityLogBundle\Service\ActivityLog\EntityFormatter\FormatterInterface',
+            class_implements($formatter),
+            true
+        );
+
+        if ($implements) {
+            $this->customFormatters[$entity] = $formatter;
+        }
     }
 
     /**
@@ -64,34 +75,31 @@ class ActivityLogFormatter
     {
         $className = substr(strrchr(rtrim($logEntry->getObjectClass(), '\\'), '\\'), 1);
 
-        $formatterClass = rtrim($this->formatterPrefix, '\\') . '\\' . $className;
-        $formatter = $this->getCustomFormatter($formatterClass);
+        $formatter = $this->getCustomFormatter($className);
+
+        if (key_exists($className, $this->customFormatters)) {
+            $formatter = $this->customFormatters[$className];
+        }
 
         // Support fully-qualified class names
         if (!$formatter) {
             $this->logger->warning("For entity {$logEntry->getObjectClass()} don't implemented Activity Log Formatter.");
-            $formatter = new UniversalFormatter($this->entityManager);
+            $formatter = new UniversalFormatter();
         }
 
         return $formatter;
     }
 
     /**
-     * @param string $formatterClass
+     * @param string $className
      * @return FormatterInterface|null
      */
-    private function getCustomFormatter($formatterClass)
+    private function getCustomFormatter($className)
     {
         $formatter = null;
-        if (class_exists($formatterClass)) {
-            $implements = in_array(
-                'ActivityLogBundle\Service\ActivityLog\EntityFormatter\FormatterInterface',
-                class_implements($formatterClass),
-                true
-            );
-            if ($implements) {
-                $formatter = new $formatterClass($this->entityManager);
-            }
+
+        if (key_exists($className, $this->customFormatters)) {
+            $formatter = $this->customFormatters[$className];
         }
 
         return $formatter;

@@ -19,12 +19,6 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('activity_log');
 
-        $rootNode
-            ->children()
-                ->scalarNode('formatter_prefix')->isRequired()->end()
-            ->end()
-        ;
-
         return $treeBuilder;
     }
 }

@@ -76,9 +76,6 @@ stof_doctrine_extensions:
         default:
             loggable: true
             
-activity_log:
-    # namespace prefix for custom formatters 
-    formatter_prefix: "AppBundle\\Service\\ActivityFormatter"
 ```
 
 Create entity and make it loggable:
@@ -137,11 +134,25 @@ Using formatter to data view
 Formatter class: **ActivityLogBundle\Service\ActivityLog\ActivityLogFormatter**
 Formatter service: **activity_log.formatter**
 
-required: **LoggerInterface**, **EntityManager** and **formatter_prefix** parameter as dependencies
+required: **LoggerInterface** as dependency
 
 By default entity without custom formatter class formatted by **ActivityLogBundle\Service\ActivityLog\EntityFormatter\UniversalFormatter**
 
 But you can implement custom formatter for each entity.
+
+To register a custom formatter, add a service tag with the following (required) properties:
+* name: 'activity_log.formatter'
+* entity: Class name of the entity that should be formatted by the registered formatter
+
+
+Example:
+```php
+services:
+    app.formatter.project:
+        class: AppBundle\Service\ActivityFormatter\Project
+        tags:
+            -  { name: activity_log.formatter, entity: 'Project'}
+```
 
 As example formatter for **AppBundle\Entity\Project** entity:
 

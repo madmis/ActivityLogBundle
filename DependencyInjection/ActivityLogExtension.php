@@ -23,8 +23,5 @@ class ActivityLogExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
-
-        $container->getDefinition('activity_log.formatter')
-            ->addArgument($config['formatter_prefix']);
     }
 }
