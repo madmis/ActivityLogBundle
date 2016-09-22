@@ -62,7 +62,6 @@ class LogEntryRepository extends BaseRepository
         $builder->select('log')
             ->from($meta->name, 'log')
             ->andWhere($or)
-//            ->addOrderBy('log.version', 'DESC')
             ->addOrderBy('log.loggedAt', 'DESC');
 
         $objectClass = $wrapped->getMetadata()->name;

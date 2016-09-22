@@ -5,18 +5,11 @@ namespace Service\ActivityLog\EntityFormatter;
 
 class AbstractFormatterTest extends \PHPUnit_Framework_TestCase
 {
-    public function getEmMock()
-    {
-        return $this->getMockBuilder('\Doctrine\ORM\EntityManager')
-            ->getMock();
-    }
-
 
     public function testNormalizeValue()
     {
         $stub = $this->getMockForAbstractClass(
-            'ActivityLogBundle\Service\ActivityLog\EntityFormatter\AbstractFormatter',
-            [$this->getEmMock()]
+            'ActivityLogBundle\Service\ActivityLog\EntityFormatter\AbstractFormatter'
         );
 
         $result = $stub->normalizeValue('test', ['key' => 'value']);
@@ -36,7 +29,7 @@ class AbstractFormatterTest extends \PHPUnit_Framework_TestCase
     {
         $stub = $this->getMockForAbstractClass(
             'ActivityLogBundle\Service\ActivityLog\EntityFormatter\AbstractFormatter',
-            [$this->getEmMock()],
+            [],
             '',
             true,
             true,

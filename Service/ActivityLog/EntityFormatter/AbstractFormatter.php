@@ -2,7 +2,6 @@
 
 namespace ActivityLogBundle\Service\ActivityLog\EntityFormatter;
 
-use Doctrine\ORM\EntityManager;
 
 /**
  * Class AbstractFormatter
@@ -10,20 +9,6 @@ use Doctrine\ORM\EntityManager;
  */
 abstract class AbstractFormatter
 {
-    /**
-     * @var EntityManager
-     */
-    protected $entityManager;
-
-    /**
-     * AbstractFormatter constructor.
-     * @param EntityManager $entityManager
-     */
-    public function __construct(EntityManager $entityManager)
-    {
-        $this->entityManager = $entityManager;
-    }
-
     /**
      * @param string $field
      * @param mixed $value
