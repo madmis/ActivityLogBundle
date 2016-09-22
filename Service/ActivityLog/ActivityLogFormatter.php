@@ -4,7 +4,6 @@ namespace ActivityLogBundle\Service\ActivityLog;
 
 use ActivityLogBundle\Entity\LogEntry;
 use ActivityLogBundle\Entity\LogEntryInterface;
-use Doctrine\ORM\EntityManager;
 use ActivityLogBundle\Service\ActivityLog\EntityFormatter\FormatterInterface;
 use ActivityLogBundle\Service\ActivityLog\EntityFormatter\UniversalFormatter;
 use Psr\Log\LoggerInterface;
@@ -32,7 +31,7 @@ class ActivityLogFormatter
      */
     public function __construct(LoggerInterface $logger)
     {
-        $this->logger           = $logger;
+        $this->logger = $logger;
         $this->customFormatters = [];
     }
 
@@ -77,7 +76,7 @@ class ActivityLogFormatter
 
         $formatter = $this->getCustomFormatter($className);
 
-        if (key_exists($className, $this->customFormatters)) {
+        if (array_key_exists($className, $this->customFormatters)) {
             $formatter = $this->customFormatters[$className];
         }
 
@@ -98,7 +97,7 @@ class ActivityLogFormatter
     {
         $formatter = null;
 
-        if (key_exists($className, $this->customFormatters)) {
+        if (array_key_exists($className, $this->customFormatters)) {
             $formatter = $this->customFormatters[$className];
         }
 
