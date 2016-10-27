@@ -31,6 +31,14 @@ class AbstractLogEntryTest extends \PHPUnit_Framework_TestCase
             $entity->getUser()
         );
     }
+    
+    public function testSetEmptyUser()
+    {
+        $entity = $this->getEntityMock();
+
+        $entity->setUser(null);
+        $this->assertNull($entity->getUser());
+    }
 
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject|AbstractLogEntry
