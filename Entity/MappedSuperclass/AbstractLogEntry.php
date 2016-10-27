@@ -110,7 +110,7 @@ abstract class AbstractLogEntry extends GedmoEtnry implements LogEntryInterface,
     }
 
     /**
-     * @return UserInterface
+     * @return UserInterface|null
      */
     public function getUser()
     {
@@ -118,9 +118,9 @@ abstract class AbstractLogEntry extends GedmoEtnry implements LogEntryInterface,
     }
 
     /**
-     * @param UserInterface $user
+     * @param UserInterface|null $user
      */
-    public function setUser(UserInterface $user)
+    public function setUser($user)
     {
         $this->user = $user;
     }
