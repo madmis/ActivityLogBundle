@@ -87,4 +87,17 @@ interface LogEntryInterface
      * @return bool
      */
     public function isRemove();
+
+
+    /**
+     * Get data
+     * @return array
+     */
+    public function getData();
+
+    /**
+     * Set data
+     * @param array $data
+     */
+    public function setData($data);
 }
