@@ -94,9 +94,9 @@ class LoggableListener extends BaseListener
                 // save relations to parent entity
                 if ($object instanceof LoggableChildInterface && $object->getParentEntity() !== null) {
                     $parent = $object->getParentEntity();
-                    $meta = AbstractWrapper::wrap($parent, $om)->getMetadata();
+                    $parentMeta = AbstractWrapper::wrap($parent, $om)->getMetadata();
                     $logEntry->setParentId($parent->getId());
-                    $logEntry->setParentClass($meta->name);
+                    $logEntry->setParentClass($parentMeta->name);
                 }
 
                 // don't save old data for new entity,
