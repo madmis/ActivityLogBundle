@@ -7,12 +7,12 @@ use ActivityLogBundle\Entity\LogEntryInterface;
 use Doctrine\ORM\Mapping as ORM;
 use ActivityLogBundle\Listener\LoggableListener;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Gedmo\Loggable\Entity\MappedSuperclass\AbstractLogEntry as GedmoEtnry;
+use Gedmo\Loggable\Entity\MappedSuperclass\AbstractLogEntry as GedmoEntry;
 
 /**
  * @ORM\MappedSuperclass
  */
-abstract class AbstractLogEntry extends GedmoEtnry implements LogEntryInterface, ArrayableInterface
+abstract class AbstractLogEntry extends GedmoEntry implements LogEntryInterface, ArrayableInterface
 {
     /**
      * @var string
