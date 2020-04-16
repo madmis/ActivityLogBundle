@@ -29,8 +29,8 @@ class UniversalFormatter extends AbstractFormatter implements FormatterInterface
                 'The entity <b>%s (%s)</b> was updated.<br><b>Prev. data:</b> %s<br><b>New data:</b> %s',
                 $log->getName(),
                 $name,
-                $this->toComment($log->getData()),
-                $this->toComment($log->getOldData())
+                $this->toComment($log->getOldData()),
+                $this->toComment($log->getData())
             );
         } else {
             $result['message'] = "Undefined action: {$log->getAction()}.";
